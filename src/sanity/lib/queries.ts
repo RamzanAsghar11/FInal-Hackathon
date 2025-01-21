@@ -71,17 +71,7 @@ export const getProductsByCategory = async (categoryTitle: string) => {
 };
 
 
-// Search products by title
-export const searchProducts = async (searchTerm :string) => {
-  const query = `*[_type == "product" && title match $searchTerm] {
-    _id,
-    title,
-    price,
-    description,
-    "imageSrc": imageSrc.asset->url
-  }`;
-  return await client.fetch(query, { searchTerm: `${searchTerm}*` }); // Partial match ke liye wildcard use karenge
-};
+
 
 
 
